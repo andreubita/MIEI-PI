@@ -39,7 +39,7 @@ void triangulo_vertical(int n){
 void triangulo_horizontal(int n){
     for(int i = 0; i < n; i++){
         for(int j = 0; j < (n*2-1); j++){
-                                          
+            
         }
     }
 }
