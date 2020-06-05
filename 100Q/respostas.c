@@ -145,3 +145,29 @@ void mirror(ABin *arv){
 }
 
 // 31
+void inorder(ABin arv, LInt *l){
+    *l = NULL;
+    inorderaux(arv, l);
+}
+
+void inorderaux(ABin arv, LInt *l){
+    if(arv){
+        inorder(arv->dir, l);
+        LInt aux = malloc(sizeof(struct lligada));
+        aux->valor = arv->valor;
+        aux->prox = *l;
+        *l = aux;
+        inorder(arv->esq, l);
+    }
+}
+
+void inorder (ABin arv, LInt *l){
+  if (arv){
+    inorder (arv->dir,l);
+    LInt new = malloc (sizeof (struct lligada));
+    new->valor = arv->valor;
+    new->prox = *l;
+    *l = new;
+    inorder (arv->esq,l);
+  }
+}
