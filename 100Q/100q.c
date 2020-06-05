@@ -7,16 +7,6 @@
 // WIP
 // Sem paciencia para programar C.
 
-typedef struct chunk {
-    int vs [MAXc];
-    struct chunk *prox;
-} *CList;
-
-typedef struct stackC {
-    CList valores;
-    int sp;
-} StackC;
-
 void add_new (ABin tree,int lado,int valor){
   ABin new;
   new = malloc (sizeof (struct nodo));
@@ -26,29 +16,6 @@ void add_new (ABin tree,int lado,int valor){
   if (lado) tree->dir = new;
   else tree->esq = new;
 }
-
-void print2DUtil(struct ABin *root, int space) 
-{ 
-    // Base case 
-    if (root == NULL) 
-        return; 
-  
-    // Increase distance between levels 
-    space += COUNT; 
-  
-    // Process right child first 
-    print2DUtil(root->dir, space); 
-  
-    // Print current node after space 
-    // count 
-    printf("\n"); 
-    for (int i = COUNT; i < space; i++) 
-        printf(" "); 
-    printf("%d\n", root->valor); 
-  
-    // Process left child 
-    print2DUtil(root->left, space); 
-} 
 
 int main(){
     LInt a = newLInt(1, newLInt(2, NULL));
