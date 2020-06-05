@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 #define MAX 100
+
 typedef struct queue{
     int inicio, tamanho;
     int valores[MAX];
@@ -42,6 +43,7 @@ int front(QUEUE *q, int *x){
     return 0;
 }
 
+// BONUS
 int rear(QUEUE *q, int *x){
     if(q->tamanho == 0) return 1;
     *x = q->valores[q->inicio+q->tamanho-1];
