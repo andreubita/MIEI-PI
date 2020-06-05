@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// PRIMEIRA PARTE
+
+// 1
 void um(){
     int current = -1;
     int bigger = 0;
@@ -11,6 +14,7 @@ void um(){
     printf("O maior numero foi %d\n", bigger);
 }
 
+// 2
 void dois(){
     int current = -1;
     int sum = 0, i = 0;
@@ -22,6 +26,7 @@ void dois(){
     printf("A media de numeros foi de %f\n", (float) sum/(i-1));
 }
 
+// 3
 void tres(){
     int current = -1;
     int a = 0, b = 0;
@@ -37,7 +42,7 @@ void tres(){
     printf("O segundo maior numero foi %d\n", b);
 }
 
-// Cinquenta
+// 50
 typedef struct posicao {
     int x, y;
 } Posicao;
@@ -53,7 +58,7 @@ int vizinhos(Posicao p, Posicao pos[], int N){
     return adj;
 }
 
-
+// SEGUNDA PARTE
 
 typedef struct lligada{
     int valor;
@@ -70,7 +75,7 @@ LInt newLInt(int v, LInt t){
     return new;
 }
 
-// Cinquenta e um
+// 1
 int length(LInt l){
     int a = 0;
     while(l != NULL){
@@ -80,7 +85,7 @@ int length(LInt l){
     return a;
 }
 
-// Cinquenta e dois
+// 2
 void freeL(LInt l){
     while(l){
         LInt temp = l;
@@ -89,7 +94,7 @@ void freeL(LInt l){
     }
 }
 
-// Cinquenta e tres
+// 3
 void imprimeL(LInt l){
     while(l != NULL){
         printf("%d\n", l->valor);
@@ -97,15 +102,46 @@ void imprimeL(LInt l){
     }
 }
 
-// Cinquenta e quatro
-LInt reverseL(LInt l){
+// 4
+LInt reverseL(LInt l) {
     int len = length(l);
-    LInt temp[len];
-    for(int i = 0; i < len; i++){
-        temp[i] = l->valor;
-        l = l->prox;
-    }
-    for(int i = len - 1; i = 0; i--){
-        
+    LInt rev[len];
+    for(int i = 0; i < len; l = l->prox) rev[i++] = l;
+    for(int i = len - 1; i > 0; i--) rev[i]->prox = rev[i-1];
+    rev[0]->prox = NULL;
+    return rev[len - 1];
+}
+
+typedef struct nodo{
+    int valor;
+    struct node *esq, *dir;
+} *ABin;
+
+// 28
+int altura(ABin arv){
+    if(arv == NULL) return 0;
+    return 1 + (altura(arv->esq) > altura(arv->dir) ? altura(arv->esq) : altura(arv->dir));
+}
+
+// 29
+ABin cloneAB(ABin arv){
+    if(arv == NULL) return NULL;
+    ABin new = malloc(sizeof(struct nodo));
+    new->valor = arv->valor;
+    new->esq = cloneAB(new->esq);
+    new->dir = cloneAB(new->dir);
+    return new;
+}
+
+// 30
+void mirror(ABin *arv){
+    if((*arv)){
+        ABin temp = (*arv)->esq;
+        (*arv)->esq = (*arv)->dir;
+        (*arv)->dir = temp;
+        mirror(&(*arv)->esq);
+        mirror(&(*arv)->dir);
     }
 }
+
+// 31
